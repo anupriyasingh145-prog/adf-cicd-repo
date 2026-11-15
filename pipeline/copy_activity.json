@@ -82,7 +82,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"file": {
-											"value": "@item.sink_file",
+											"value": "@item().sink_file",
 											"type": "Expression"
 										}
 									}
