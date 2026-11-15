@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('GetParams').output.value[0].params",
+						"value": "@activity('GetParams').output.firstRow.params",
 						"type": "Expression"
 					},
 					"activities": [
