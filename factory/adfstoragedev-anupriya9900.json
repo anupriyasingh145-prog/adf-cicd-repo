@@ -1,0 +1,15 @@
+{
+	"name": "adfstoragedev-anupriya9900",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c5c447f2-4689-4cc6-bd2e-0d387dbd911b",
+		"tenantId": "5afe47f8-254c-4060-8d6e-ecb47b45ab27"
+	}
+}
