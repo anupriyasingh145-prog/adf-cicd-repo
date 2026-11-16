@@ -25,7 +25,7 @@ parameters:
   inputs:
     command: 'custom'
     workingDir: '$(Build.Repository.LocalPath)'
-    customCommand: 'run build validate $(Build.Repository.LocalPath)'//subscriptions/$
+    customCommand: 'run build validate $(Build.Repository.LocalPath)'//subscriptions/$(SubscriptionId)/resourceGroups/$(ResourceGroup)
   displayName: 'Validate'
 
 
