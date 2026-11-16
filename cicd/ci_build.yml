@@ -1,0 +1,24 @@
+parameters:
+- name: DataFactory
+  type: string
+- name: ResourceGroup
+  type: string
+- name: SubscriptionId
+  type: string
+  
+  steps:
+
+  - task: UseNode@1
+    inputs:
+      version: '18.x'
+    displayName: 'Install Node.js'
+
+  - task: Npm@1
+    inputs:
+      command: 'install'
+      workingDir: '$(Build.repository.LocalPath)'
+      verbose: true
+    displayName: 'Install npm package'
+        
+
+
