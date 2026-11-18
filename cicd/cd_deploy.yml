@@ -7,3 +7,13 @@ parameters:
   type: string
 - name: SubscriptionId
   type: string
+
+steps:
+
+# Download Artifacts
+- task: DownloadPipelineArtifact@2
+  displayName: "Download The ADF Artifact"
+  inputs:
+    buildType: "current"
+    artifactName: "ARMTemplate"
+    targetPath: "$(Pipeline.Workspace)/ARMTemplate"
