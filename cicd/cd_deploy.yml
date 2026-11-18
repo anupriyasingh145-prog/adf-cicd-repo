@@ -1,22 +1,10 @@
-parameters:
-- name: AzureResourceManagerConnection
-  type: string
-- name: DataFactory
-  type: string
-- name: ResourceGroup
-  type: string
-- name: SubscriptionId
-  type: string
-
-steps:
-
 # Download Artifacts
 - task: DownloadPipelineArtifact@2
   displayName: "Download The ADF Artifact"
   inputs:
     buildType: "current"
-    artifactName: "ArmTemplate"
-    targetPath: "$(Pipeline.Workspace)/ArmTemplate"
+    artifactName: "ArmTemplates"
+    targetPath: "$(Pipeline.Workspace)/ARMTemplate"
 
 - task: AzurePowerShell@5
   displayName: "Stop Current ADF Triggers"
@@ -25,11 +13,11 @@ steps:
     pwsh: true
     azurePowerShellVersion: "LatestVersion"
     ScriptType: "FilePath"
-    ScriptPath: "$(Pipeline.Workspace)/ArmTemplate/PrePostDeploymentScript.ps1"
+    ScriptPath: "$(Pipeline.Workspace)/ARMTemplate/PrePostDeploymentScript.ps1"
     scriptArguments:
-      -ArmTemplate "$(Pipeline.Workspace)/ArmTemplate/ARMTemplateForFactory.json"
+      -ArmTemplate "$(Pipeline.Workspace)/ARMTemplate/ARMTemplateForFactory.json"
       -ArmTemplateParameters $(Build.Repository.LocalPath)/cicd/ARMParams/qa.json
       -ResourceGroupName ${{ parameters.ResourceGroup }}
       -DataFactoryName ${{ parameters.DataFactory }}
-      -predeployment $false
-      -deleteDeployment $true
+      -predeployment $true
+      -deleteDeployment $false
