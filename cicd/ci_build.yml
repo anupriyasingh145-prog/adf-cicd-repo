@@ -39,6 +39,6 @@ steps:
 # Publish the artifacts
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Build.Repository.LocalPath)/ArmTemplates'
+    targetPath: '$(Build.Repository.LocalPath)/ArmTemplate'
     artifact: 'ArmTemplates'
     publishLocation: 'pipeline'
