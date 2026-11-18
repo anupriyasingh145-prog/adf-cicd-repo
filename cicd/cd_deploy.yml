@@ -15,8 +15,8 @@ steps:
   displayName: "Download The ADF Artifact"
   inputs:
     buildType: "current"
-    artifactName: "ARMTemplate"
-    targetPath: "$(Pipeline.Workspace)/ARMTemplate"
+    artifactName: "ArmTemplate"
+    targetPath: "$(Pipeline.Workspace)/ArmTemplate"
 
 - task: AzurePowerShell@5
   displayName: "Stop Current ADF Triggers"
