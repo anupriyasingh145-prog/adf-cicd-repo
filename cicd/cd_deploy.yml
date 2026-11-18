@@ -31,5 +31,5 @@ steps:
       -ArmTemplateParameters $(Build.Repository.LocalPath)/cicd/ARMParams/qa.json
       -ResourceGroupName ${{ parameters.ResourceGroup }}
       -DataFactoryName ${{ parameters.DataFactory }}
-      -predeployment $true
-      -deleteDeployment $false
+      -predeployment $false
+      -deleteDeployment $true
