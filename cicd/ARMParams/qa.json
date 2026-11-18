@@ -3,16 +3,16 @@
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"factoryName": {
-			"value": "adfstoragedev-anupriya9900"
+			"value": "adfstorageqa-anupriya9900"
 		},
 		"AzureKeyVault1_properties_typeProperties_baseUrl": {
-			"value": "https://keyvaultanupriyadev.vault.azure.net/"
+			"value": "https://keyvaultanupriyaqa.vault.azure.net/"
 		},
 		"Is_Http_properties_typeProperties_url": {
 			"value": "https://raw.githubusercontent.com/"
 		},
 		"ls_adls_properties_typeProperties_url": {
-			"value": "https://storageanupriyadev.dfs.core.windows.net/"
+			"value": "https://storageanupriyaqa.dfs.core.windows.net/"
 		}
 	}
 }
