@@ -21,6 +21,26 @@ stages:
         ResourceGroup: $(ResourceGroup)
         SubscriptionId: $(SubscriptionId)
 
+# DEPLOY TO DEV
+- stage: DeployToDEV
+  dependsOn: BuildARMTemplate
+  condition: succeeded()
+  displayName: "Deploy To DEV"
+
+  variables:
+  - group: devgroup
+
+  jobs:
+  - job: DeployToDEV
+    displayName: "Deploy To DEV"
+    steps:
+    - template: cd_deploy.yml
+      parameters:
+        AzureResourceManagerConnection: adfazure-service-connection
+        DataFactory: $(DataFactory)
+        SubscriptionId: $(SubscriptionId)
+        ResourceGroup: $(ResourceGroup)   
+
 # DEPLOY TO QA
 - stage: DeployToQA
   dependsOn: BuildARMTemplate
