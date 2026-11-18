@@ -7,7 +7,9 @@ parameters:
   type: string
 - name: SubscriptionId
   type: string
-  
+
+steps:
+
 # Download Artifacts
 - task: DownloadPipelineArtifact@2
   displayName: "Download The ADF Artifact"
@@ -29,5 +31,5 @@ parameters:
       -ArmTemplateParameters $(Build.Repository.LocalPath)/cicd/ARMParams/qa.json
       -ResourceGroupName ${{ parameters.ResourceGroup }}
       -DataFactoryName ${{ parameters.DataFactory }}
-      -predeployment $false
-      -deleteDeployment $true
+      -predeployment $true
+      -deleteDeployment $false
