@@ -17,3 +17,18 @@ steps:
     buildType: "current"
     artifactName: "ARMTemplate"
     targetPath: "$(Pipeline.Workspace)/ARMTemplate"
+- task: AzurePowerShell@5
+  displayName: "Stop Current ADF Triggers"
+  inputs:
+    azureSubscription: ${{ parameters.AzureResourceManagerConnection }}
+    pwsh: true
+    azurePowerShellVersion: "LatestVersion"
+    ScriptType: "FilePath"
+    ScriptPath: "$(Pipeline.Workspace)/ARMTemplate/PrePostDeploymentScript.ps1"
+    scriptArguments:
+      -ArmTemplate "$(Pipeline.Workspace)/ARMTemplate/ARMTemplateForFactory.json"
+      -ArmTemplateParameters $(Build.Repository.LocalPath)/cicd/ARMParams/ARMTemplateParametersForFactory.json
+      -ResourceGroupName ${{ parameters.ResourceGroup }}
+      -DataFactoryName ${{ parameters.DataFactory }}
+      -predeployment $true
+      -deleteDeployment $false
