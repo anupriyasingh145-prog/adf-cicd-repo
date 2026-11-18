@@ -1,0 +1,9 @@
+parameters:
+- name: AzureResourceManagerConnection
+  type: string
+- name: DataFactory
+  type: string
+- name: ResourceGroup
+  type: string
+- name: SubscriptionId
+  type: string
