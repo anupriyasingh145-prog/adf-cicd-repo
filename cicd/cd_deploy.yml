@@ -25,9 +25,9 @@ steps:
     pwsh: true
     azurePowerShellVersion: "LatestVersion"
     ScriptType: "FilePath"
-    ScriptPath: "$(Pipeline.Workspace)/ARMTemplate/PrePostDeploymentScript.ps1"
+    ScriptPath: "$(Pipeline.Workspace)/ArmTemplate/PrePostDeploymentScript.ps1"
     scriptArguments:
-      -ArmTemplate "$(Pipeline.Workspace)/ARMTemplate/ARMTemplateForFactory.json"
+      -ArmTemplate "$(Pipeline.Workspace)/ArmTemplate/ARMTemplateForFactory.json"
       -ArmTemplateParameters $(Build.Repository.LocalPath)/cicd/ARMParams/qa.json
       -ResourceGroupName ${{ parameters.ResourceGroup }}
       -DataFactoryName ${{ parameters.DataFactory }}
