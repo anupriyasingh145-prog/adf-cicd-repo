@@ -36,7 +36,7 @@ stages:
     steps:
     - template: cd_deploy.yml
       parameters:
-        AzureResourceManagerConnection: adf_service_connection
+        AzureResourceManagerConnection: adfazure_service_connection
         DataFactory: $(DataFactory)
         SubscriptionId: $(SubscriptionId)
         ResourceGroup: $(ResourceGroup)        
