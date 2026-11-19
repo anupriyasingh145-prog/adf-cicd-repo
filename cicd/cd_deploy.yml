@@ -36,7 +36,7 @@ steps:
       -predeployment $true
       -deleteDeployment $false
 
-      - task: AzureResourceManagerTemplateDeployment@3
+- task: AzureResourceManagerTemplateDeployment@3
   displayName: "Deploy ADF ARM Template"
   inputs:
     deploymentScope: "Resource Group"
