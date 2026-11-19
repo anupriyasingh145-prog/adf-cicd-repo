@@ -35,3 +35,17 @@ steps:
       -DataFactoryName ${{ parameters.DataFactory }}
       -predeployment $true
       -deleteDeployment $false
+
+      - task: AzureResourceManagerTemplateDeployment@3
+  displayName: "Deploy ADF ARM Template"
+  inputs:
+    deploymentScope: "Resource Group"
+    azureResourceManagerConnection: ${{ parameters.AzureResourceManagerConnection }}
+    subscriptionId: ${{ parameters.SubscriptionId }}
+    action: "Create Or Update Resource Group"
+    resourceGroupName: ${{ parameters.ResourceGroup }}
+    location: "West Europe"
+    templateLocation: "Linked artifact"
+    csmFile: "$(Pipeline.Workspace)/ARMTemplate/ARMTemplateForFactory.json"
+    csmParametersFile: "$(Build.Repository.LocalPath)/cicd/ARMParams/${{ parameters.Environment }}.json"
+    deploymentMode: "Incremental"
