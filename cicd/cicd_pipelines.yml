@@ -70,7 +70,7 @@ stages:
   displayName: "Deploy To Production"
 
   variables:
-  - group: pdgroup
+  - group: prodgroup
 
   jobs:
   - deployment: DeployToPD
