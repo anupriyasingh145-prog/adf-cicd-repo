@@ -40,6 +40,7 @@ stages:
         DataFactory: $(DataFactory)
         SubscriptionId: $(SubscriptionId)
         ResourceGroup: $(ResourceGroup)   
+        Environment: dev
 
 # DEPLOY TO QA
 - stage: DeployToQA
@@ -59,4 +60,5 @@ stages:
         AzureResourceManagerConnection: adfazure-service-connection
         DataFactory: $(DataFactory)
         SubscriptionId: $(SubscriptionId)
-        ResourceGroup: $(ResourceGroup)        
+        ResourceGroup: $(ResourceGroup)    
+        Environment: qa    
