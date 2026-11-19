@@ -28,7 +28,7 @@ steps:
     ScriptPath: "$(Pipeline.Workspace)/ARMTemplate/PrePostDeploymentScript.ps1"
     scriptArguments:
       -ArmTemplate "$(Pipeline.Workspace)/ARMTemplate/ARMTemplateForFactory.json"
-      -ArmTemplateParameters $(Build.Repository.LocalPath)/cicd/ARMParams/qa.json
+      -ArmTemplateParameters $(Build.Repository.LocalPath)/cicd/ARMParams/${{parameters.Environment}}.json
       -ResourceGroupName ${{ parameters.ResourceGroup }}
       -DataFactoryName ${{ parameters.DataFactory }}
       -predeployment $true
